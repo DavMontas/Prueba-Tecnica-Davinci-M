@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace core.application.interfaces;
 
-namespace core.application.interfaces
+public interface IRandomProvider
 {
-    public interface IRandomProvider
-    {
-        int NextInt(int minInclusive, int maxInclusive);
-    }
+    int NextInt(int minInclusive, int maxInclusive);
 }

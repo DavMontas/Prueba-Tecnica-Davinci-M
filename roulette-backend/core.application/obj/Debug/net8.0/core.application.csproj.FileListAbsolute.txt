@@ -1,15 +1,31 @@
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\bin\Debug\net8.0\core.application.deps.json
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\bin\Debug\net8.0\core.application.dll
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\bin\Debug\net8.0\core.application.pdb
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\bin\Debug\net8.0\core.domain.dll
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\bin\Debug\net8.0\core.domain.pdb
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.csproj.AssemblyReference.cache
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.AssemblyInfoInputs.cache
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.AssemblyInfo.cs
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.csproj.CoreCompileInputs.cache
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.app.2BC726BC.Up2Date
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.dll
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\refint\core.application.dll
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\core.application.pdb
-C:\Users\DNMontas\source\repos\El Juego de la Ruleta backend\core.application\obj\Debug\net8.0\ref\core.application.dll
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/bin/Debug/net8.0/core.application.deps.json
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/bin/Debug/net8.0/core.application.dll
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/bin/Debug/net8.0/core.application.pdb
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/bin/Debug/net8.0/core.domain.dll
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/bin/Debug/net8.0/core.domain.pdb
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.csproj.AssemblyReference.cache
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.AssemblyInfoInputs.cache
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.AssemblyInfo.cs
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.csproj.CoreCompileInputs.cache
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.app.2BC726BC.Up2Date
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.dll
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/refint/core.application.dll
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/core.application.pdb
+C:/Users/DNMontas/source/repos/El Juego de la Ruleta backend/core.application/obj/Debug/net8.0/ref/core.application.dll
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.csproj.AssemblyReference.cache
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.AssemblyInfoInputs.cache
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.AssemblyInfo.cs
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.csproj.CoreCompileInputs.cache
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.sourcelink.json
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.dll
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/refint/core.application.dll
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.application.pdb
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/bin/Debug/net8.0/core.application.deps.json
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/bin/Debug/net8.0/core.application.dll
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/bin/Debug/net8.0/core.application.pdb
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/bin/Debug/net8.0/core.domain.dll
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/bin/Debug/net8.0/core.domain.pdb
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/core.app.2BC726BC.Up2Date
+/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.application/obj/Debug/net8.0/ref/core.application.dll

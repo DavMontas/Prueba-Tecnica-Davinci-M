@@ -3,7 +3,7 @@ using core.application.interfaces;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Roulette.Application.Roulette;
+using Roulette.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +20,7 @@ namespace core.application
         {
             svc.AddTransient<IRouletteService, RouletteService>();
             svc.AddTransient<IRandomProvider, RandomProvider>();
+            svc.AddTransient<IUserService, UserService>();
 
             svc.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 

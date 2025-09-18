@@ -1,15 +1,10 @@
 ﻿using core.application.dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Roulette.Application.Contracts;
 
-namespace core.application.interfaces
+namespace core.application.interfaces;
+
+public interface IRouletteService
 {
-    public interface IRouletteService
-    {
-        SpinResult Spin();
-        PrizeResult CalculatePrize(Bet bet, SpinResult spin);
-    }
+    SpinResult Spin();
+    ResolveBetResponse ResolveBet(ResolveBetRequest req);
 }

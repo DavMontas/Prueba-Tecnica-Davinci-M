@@ -1,19 +1,19 @@
-﻿using core.Application.Contracts;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
+using Roulette.Application.Contracts;
 
-public class SaveBalanceRequestValidator : AbstractValidator<SaveBalanceRequest>
+namespace Roulette.Api.Validation;
+
+public sealed class SaveBalanceRequestValidator : AbstractValidator<SaveBalanceRequest>
 {
     public SaveBalanceRequestValidator()
     {
         RuleFor(x => x.Name)
-            .NotEmpty().MinimumLength(1);
+            .NotEmpty().WithMessage("Name is required.")
+            .MinimumLength(1)
+            .MaximumLength(120);
 
         RuleFor(x => x.Delta)
-            .Must(_ => true);
+            .Must(d => d != 0m).WithMessage("Delta must be non-zero.")
+            .Must(d => Math.Round(d, 2) == d).WithMessage("Delta must have at most 2 decimals.");
     }
 }

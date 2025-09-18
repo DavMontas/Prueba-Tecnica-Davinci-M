@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OUGjtC+D8XQ=",
+  "dgSpecHash": "ZTHKNxiPzEk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\DNMontas\\source\\repos\\El Juego de la Ruleta backend\\core.domain\\core.domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/davincimontas/workspace/prueba-tecnica-Davinci-M/roulette-backend/core.domain/core.domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/davincimontas/.nuget/packages/microsoft.netcore.app.ref/8.0.18/microsoft.netcore.app.ref.8.0.18.nupkg.sha512",
+    "/Users/davincimontas/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.18/microsoft.aspnetcore.app.ref.8.0.18.nupkg.sha512"
+  ],
   "logs": []
 }

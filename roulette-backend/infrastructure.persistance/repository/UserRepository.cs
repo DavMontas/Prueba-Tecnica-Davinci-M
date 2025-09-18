@@ -1,64 +1,59 @@
-﻿using core.application.dtos;
-using core.application.interfaces;
+﻿using core.application.interfaces;
 using core.domain.entities;
 using infrastructure.persistance.contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace infrastructure.persistance.repository
+namespace Roulette.Infrastructure.Repositories;
+
+public sealed class UserRepository : IUserRepository
 {
-    public class UserRepository : IUserRepository
+    private readonly AppDbContext _db;
+    public UserRepository(AppDbContext db) => _db = db;
+
+    public async Task<decimal?> GetBalanceAsync(string name, CancellationToken ct)
     {
-        private readonly AppDbContext _db;
-
-        public UserRepository(AppDbContext db) => _db = db;
-
-        private static string Normalize(string name) => name.Trim().ToUpperInvariant();
-
-        public async Task<User?> GetByNameAsync(string name, CancellationToken ct = default)
-        {
-            var norm = Normalize(name);
-            return await _db.Users
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.NameNormalized == norm, ct);
-        }
-
-        public async Task<decimal> GetBalanceAsync(string name, CancellationToken ct = default)
-        {
-            var norm = Normalize(name);
-            var ub = await _db.Users
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.NameNormalized == norm, ct);
-            return ub?.Balance ?? 0m;
-        }
-        public async Task<decimal> SaveDeltaAsync(string name, decimal delta, CancellationToken ct = default)
-        {
-            var norm = Normalize(name);
-
-            var ub = await _db.Users
-                .FirstOrDefaultAsync(x => x.NameNormalized == norm, ct);
-
-            if (ub is null)
-            {
-                ub = new User
-                {
-                    Name = name.Trim(),
-                    NameNormalized = norm,
-                    Balance = delta
-                };
-                _db.Users.Add(ub);
-            }
-            else
-            {
-                ub.Balance += delta;
-            }
-
-            await _db.SaveChangesAsync(ct);
-            return ub.Balance;
-        }
+        var n = Normalize(name);
+        var user = await _db.Users.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.NameNormalized == n, ct);
+        return user?.Balance;
     }
+
+    public async Task<decimal> SaveDeltaAsync(string name, decimal delta, CancellationToken ct)
+    {
+        var n = Normalize(name);
+
+        var updated = await _db.Users
+            .Where(x => x.NameNormalized == n)
+            .ExecuteUpdateAsync(s => s.SetProperty(x => x.Balance, x => x.Balance + delta), ct);
+
+        if (updated == 0)
+        {
+            _db.Users.Add(new User
+            {
+                Name = name.Trim(),
+                NameNormalized = n,
+                Balance = delta
+            });
+
+            try
+            {
+                await _db.SaveChangesAsync(ct);
+            }
+            catch (DbUpdateException)
+            {
+                await _db.Users
+                    .Where(x => x.NameNormalized == n)
+                    .ExecuteUpdateAsync(s => s.SetProperty(x => x.Balance, x => x.Balance + delta), ct);
+            }
+        }
+
+        var balance = await _db.Users.AsNoTracking()
+            .Where(x => x.NameNormalized == n)
+            .Select(x => x.Balance)
+            .FirstAsync(ct);
+
+        return balance;
+    }
+
+    private static string Normalize(string name) => name.Trim().ToLowerInvariant();
 }

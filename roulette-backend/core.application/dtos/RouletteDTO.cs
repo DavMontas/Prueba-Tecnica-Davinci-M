@@ -8,12 +8,10 @@ namespace core.application.dtos
 {
     public enum BetType
     {
-        Color,           
-        ParityOfColor,   
+        Color,
+        ParityOfColor,
         NumberAndColor
     }
-
-    public record SpinResult(int Number, string Color, string Parity);
 
     public record BetSelection(string? Color = null, string? Parity = null, int? Number = null);
 

@@ -1,30 +1,40 @@
 ﻿using core.application.interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Roulette.Application.Contracts;
+
+namespace Roulette.Api.Controllers;
 
 [ApiController]
 [Route("api/users")]
-public class UsersController : ControllerBase
+public sealed class UsersController : ControllerBase
 {
-    private readonly IUserRepository _repo;
-    public UsersController(IUserRepository repo) => _repo = repo;
+    private readonly IUserService _svc;
+    public UsersController(IUserService svc) => _svc = svc;
 
-    [HttpGet("{name}/balance")]
-    public async Task<ActionResult<object>> GetBalance([FromRoute] string name, CancellationToken ct)
+    [HttpGet("{name}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<object>> GetUser([FromRoute] string name, CancellationToken ct)
     {
-        var balance = await _repo.GetBalanceAsync(name, ct);
+        var balance = await _svc.GetBalance(name, ct);
+        if (balance is null) return NotFound();
         return Ok(new { name, balance });
     }
 
-    public sealed class SaveBalanceRequest
+    [HttpGet("{name}/balance")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<object>> GetBalance([FromRoute] string name, CancellationToken ct)
     {
-        public string Name { get; set; } = default!;
-        public decimal Delta { get; set; }
+        var balance = await _svc.GetBalance(name, ct) ?? 0m;
+        return Ok(new { name, balance });
     }
 
     [HttpPost("save-balance")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<object>> SaveBalance([FromBody] SaveBalanceRequest req, CancellationToken ct)
     {
-        var newBalance = await _repo.SaveDeltaAsync(req.Name, req.Delta, ct);
-        return Ok(new { name = req.Name, balance = newBalance });
+        var balance = await _svc.SaveBalance(req, ct);
+        return Ok(new { name = req.Name, balance });
     }
 }
