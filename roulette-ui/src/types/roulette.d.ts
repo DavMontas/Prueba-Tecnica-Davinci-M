@@ -1,26 +1,28 @@
-export type ApiBetType = 0 | 1 | 2; // Color=0, ParityOfColor=1, NumberAndColor=2
+export type ApiBetType = 1 | 2 | 3;
+
+export type BetKind = 'Color' | 'ParityOfColor' | 'NumberAndColor';
 
 export interface SpinResultDto {
-  number: number;                     // 0..36
-  color: 'red' | 'black';             // color SIEMPRE rojo/negro (independiente del número)
-  parity: 'even' | 'odd' | 'none';    // 'none' para 0
+  number: number;                    // 0..36
+  color: 'red' | 'black';            // independiente del número
+  parity: 'zero' | 'even' | 'odd';   // 'zero' para 0 (ojo: antes tenías 'none')
 }
 
 export interface BetSelectionDto {
   color?: 'red' | 'black';
   parity?: 'even' | 'odd';
-  number?: number;                    // 0..36
+  number?: number;                   // 0..36
 }
 
-export interface CalculatePrizeRequest {
+export interface ResolveBetRequestDto {
   betType: ApiBetType;
-  stake: number;                      // > 0
+  stake: number;                     // > 0
   selection: BetSelectionDto;
-  spin: SpinResultDto;
 }
 
-export interface PrizeResult {
+export interface ResolveBetResponseDto {
   won: boolean;
-  payout: number;
-  net: number;
+  prize: number;                     // "monto del premio"
+  net: number;                       // conveniencia del backend: prize - stake
+  outcome: SpinResultDto;            // resultado del servidor
 }

@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { useRoulette } from '../composables/useRoulette';
 import BalancePanel from '../components/BalancePanel.vue';
 import BetForm from '../components/BetForm.vue';
-import SpinResultCard from '../components/SpinResultCard.vue';
+import PlayPanel from '../components/PlayPanel.vue';
+import { useRoulette } from '../composables/useRoulette';
 
 const {
-    userName, amount, lastSpin, betType, selection, stake, loading, message,
-    doSpin, doCalculate, doLoadBalance, doSaveBalance,
+    userName, amount, betType, selection, stake,
+    lastOutcome, lastPrize, lastWon,
+    loading, message,
+    doPlay, doSampleSpin, doLoadBalance, doSaveBalance,
 } = useRoulette();
 </script>
 
@@ -19,8 +21,26 @@ const {
 
         <BetForm v-model:betType="betType" v-model:selection="selection" v-model:stake="stake" :loading="loading" />
 
-        <SpinResultCard :result="lastSpin" :loading="loading" @spin="doSpin" @calculate="doCalculate" />
+        <PlayPanel :loading="loading" :outcome="lastOutcome" :lastWon="lastWon" :lastPrize="lastPrize" @play="doPlay"
+            @sample="doSampleSpin" />
 
         <p v-if="message" class="message">{{ message }}</p>
     </main>
 </template>
+
+<style scoped>
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+h1 {
+    margin: 0 0 18px
+}
+
+.message {
+    margin-top: 12px;
+    font-weight: 600
+}
+</style>
